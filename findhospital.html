@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Hospital - Locations</title>
+
+    <!-- Slick Carousel CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+
+    <style>
+        /* Reset Default Margin & Padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Header Styling */
+        .header {
+            background-color: #0d4f78; /* Dark blue */
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 30px;
+        }
+
+        .header img {
+            width: 120px; /* Adjust the logo size */
+            height: auto;
+        }
+
+        /* Navbar */
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar li {
+            display: inline;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 8px 12px;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #005599;
+            border-radius: 5px;
+        }
+        .account-info {
+            display: flex;
+            align-items: center;
+        }
+        .account-info img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+        /* General Styling */
+        body {
+            font-family: "Arial", sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+        }
+
+
+        .hospital-section {
+            padding: 40px 20px;
+        }
+
+        h2 {
+            color: #023e8a;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            max-width: 800px;
+            margin: 10px auto;
+            color: #555;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Hospital Cards */
+        .slider {
+            width: 80%;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 8px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            color: #0077b6;
+            font-size: 20px;
+            margin: 12px 0 5px;
+        }
+
+        .card p {
+            color: #333;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        /* Slick Arrow Styling */
+        .slick-prev, .slick-next {
+            background-color: #ffffff;
+            color: rgb(57, 61, 120);
+            border: none;
+            padding: 12px;
+            border-radius: 70%;
+            font-size: 22px;
+            cursor: pointer;
+            position:absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+        }
+
+        .slick-prev {
+            left: -40px;
+        }
+
+        .slick-next {
+            right: -40px;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 50px 30px;
+            background-color: #031027;
+            color: white;
+        }
+
+        .footer-section {
+            max-width: 280px;
+        }
+
+        .footer-section h3 {
+            border-bottom: 2px solid orange;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        .newsletter input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+        }
+
+        .newsletter button {
+            background-color: #008cba;
+            color: white;
+            padding: 8px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: white;
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        .footer-bottom {
+            background-color: #02577a;
+            text-align: center;
+            padding: 10px;
+            color: white;
+            font-size: 14px;
+        }
+
+        .social-icons {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .social-icons li {
+            margin: 0 10px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <img src="novacare(1).png" alt="Hospital Logo">
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="doctors.html">Doctors</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="trail2.html">Login & Sign Up</a></li>
+            </ul>
+        </nav>
+        <div class="account-info">
+            <span id="accountName">Guest</span>
+            <img src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png" alt="User Icon">
+        </div>
+    </div>
+
+    <!-- Hospital Section -->
+    <section class="hospital-section">
+        <h2>NovaCare Hospitals – Delivering Excellence, Everywhere</h2>
+        <p>
+            With 73 hospitals, 10,000+ beds, 6,500+ pharmacies, 700+ clinics,
+            2,300 diagnostic centers, and 200 telemedicine units, Apollo delivers
+            world-class healthcare—accessible from metros to remote corners of India.
+        </p>
+        <div class="slider">
+            <div class="card">
+                <img src="hs1.jpg" alt="Windsor Private Hospital">
+                <h3>Windsor Private Hospital</h3>
+                <p>20 The Avenue, Windsor, VIC 3181</p>
+            </div>
+            <div class="card">
+                <img src="hs2.jpg" alt="Westside Private Hospital">
+                <h3>Westside Private Hospital</h3>
+                <p>32 Morrow Street, Taringa, QLD 4068</p>
+            </div>
+            <div class="card">
+                <img src="hs3.jpg" alt="Northside Medical Center">
+                <h3>Northside Medical Center</h3>
+                <p>45 Greenway Drive, Sydney, NSW 2000</p>
+            </div>
+            <div class="card">
+                <img src="hs4.jpg" alt="Eastwood General Hospital">
+                <h3>Eastwood General Hospital</h3>
+                <p>78 Maple Street, Melbourne, VIC 3000</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="hospital-section">
+        <h2>NovaCare Hospitals Patient Reviwes </h2>
+        <div class="slider">
+            <div class="card">
+
+                <img src="p1.jpeg" alt="Windsor Private Hospital">
+                <p>⭐⭐⭐⭐⭐<br>
+                    "The doctors were extremely professional and kind. The staff ensured I was comfortable throughout my stay. Highly recommended!"
+                    </p>
+            </div>
+            <div class="card">
+                <img src="p2.jpeg" alt="Westside Private Hospital">
+                <p>⭐⭐⭐⭐☆<br>
+                    "Good hospital with modern facilities. The billing process could be a<br> bit more transparent though."
+                    
+                    </p>
+            </div>
+            <div class="card">
+                <img src="p3.jpeg" alt="Northside Medical Center">
+                <p>4⭐⭐⭐⭐⭐<br>
+                    "Impressed with how the hospital handled my mother's surgery. Everything was smooth and the doctors kept us informed."
+                    </p>
+            </div>
+            <div class="card">
+                <img src="p4.jpeg" alt="Eastwood General Hospital">
+                <p>⭐⭐⭐☆☆<br>
+                    "Average experience. Nothing extraordinary, but not too bad either. <br>Room service was slow."</p>
+            </div>
+            <div class="card">
+                <img src="p5.jpeg" alt="Eastwood General Hospital">
+                <p>⭐⭐⭐⭐☆<br>
+                    "Too crowded and disorganized. Parking was a nightmare and <br>no one at the reception seemed to know anything."
+                    </p>
+            </div>
+            <div class="card">
+                <img src="p6.jpeg" alt="Eastwood General Hospital">
+                <p>⭐⭐⭐⭐⭐<br>
+                    "One of the best hospitals in the city! The ICU is well-equipped, and the doctors genuinely care about their patients."</p>
+            </div> <div class="card">
+                <img src="p7.jpeg" alt="Eastwood General Hospital">
+                <p>⭐⭐⭐⭐☆<br>
+                    "Neat and clean facilities. The online appointment system worked well, <br>saved us a lot of time."
+                    
+                    </p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Patient Care</h3>
+                <a href="#">Find A Doctor</a>
+                <a href="#">Patient Testimonials</a>
+                <a href="#">Value Added Services</a>
+                <a href="#">Pay Online</a>
+            </div>
+            <div class="footer-section">
+                <h3>Medical Procedures</h3>
+                <a href="#">Bariatric Surgery</a>
+                <a href="#">Brain Surgeries</a>
+                <a href="#">CABG Heart Bypass Surgery</a>
+                <a href="#">Cardiac Pacemakers</a>
+            </div>
+            <div class="footer-section">
+                <h3>Academics & Research</h3>
+                <a href="#">Administration</a>
+                <a href="#">Nursing</a>
+                <a href="#">Physiotherapy</a>
+                <a href="#">MBA Health Care Management</a>
+            </div>
+            <div class="footer-section newsletter">
+                <h3>Subscribe to Our Newsletter</h3>
+                <input type="email" placeholder="Enter your email id">
+                <button>Submit</button>
+                <p>Follow us on:</p>
+                <ul class="social-icons">
+                    <li><a href="https://www.facebook.com/sk.moyeen786"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="https:/www.twitter.com"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="https://www.instagram.com/shehzada_monu_776?igsh=cWpzejZuMHK0eTBV"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; Copyright 2025. Apollo Hospitals Group. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- jQuery and Slick Carousel -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.slider').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                arrows: true,
+                dots: true,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                prevArrow: '<button type="button" class="slick-prev">&#10094;</button>',
+                nextArrow: '<button type="button" class="slick-next">&#10095;</button>',
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1
+                        }
+                    }
+                ]
+            });
+
+            let hoverTimeout;
+            $('.card').hover(
+                function() {
+                    hoverTimeout = setTimeout(() => {
+                        $('.slider').slick('slickNext');
+                    }, 2000);
+                },
+                function() {
+                    clearTimeout(hoverTimeout);
+                }
+            );
+        });
+    </script>
+
+</body>
+</html>

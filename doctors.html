@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctors Directory - We Care Hospital</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #157;
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+        }
+        header img {
+            width: 100px;
+            height: auto;
+            margin-right: 20px;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        .doctor-card {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .doctor-card:hover {
+            background: #e6f7ff;
+        }
+        .doctor-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        .doctor-info {
+            flex-grow: 1;
+        }
+        .doctor-details {
+            display: none;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+        }
+        .back-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #157;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        footer {
+            background-color: #0d4f78;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function showDoctorDetails(doctorId) {
+            let details = document.getElementsByClassName('doctor-details');
+            for (let i = 0; i < details.length; i++) {
+                details[i].style.display = 'none';
+            }
+            document.getElementById(doctorId).style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <a href="index.html">
+        <img src="novacare(1).png" alt="NovaCare Hospital Logo"></a>
+        <h1>Doctors Directory</h1>
+    </header>
+    <div class="container">
+        
+        <div class="doctor-card" onclick="showDoctorDetails('doctor1')">
+            <img src="doct3.jpeg" alt="Dr. John Doe">
+            <div class="doctor-info">
+                <h3>Dr. Yogesh</h3>
+                <p>Specialty: Cardiology</p>
+            </div>
+        </div>
+        <div id="doctor1" class="doctor-details">
+            <h2>Dr.Yogesh - Cardiology</h2>
+            <ul>
+                <li>15+ years experience in cardiology.</li>
+                <li>Expert in treating heart diseases.</li>
+                <li>Performed over 500 successful surgeries.</li>
+                <li>Published multiple research papers.</li>
+                <li>Member of American Heart Association.</li>
+                <li>Specialist in minimally invasive procedures.</li>
+                <li>Available for telemedicine consultations.</li>
+                <li>Fluent in English and Spanish.</li>
+                <li>Active in community health programs.</li>
+                <li>Holds MD from Harvard Medical School.</li>
+            </ul>
+            <button class="back-button" onclick="this.parentElement.style.display='none'">Back</button>
+        </div>
+        
+        <div class="doctor-card" onclick="showDoctorDetails('doctor2')">
+            <img src="doct1.jpeg" alt="Dr. Jane Smith">
+            <div class="doctor-info">
+                <h3>Dr.Simran</h3>
+                <p>Specialty: Neurology</p>
+            </div>
+        </div>
+        <div id="doctor2" class="doctor-details">
+            <h2>Dr.Simran - Neurology</h2>
+            <ul>
+                <li>20+ years experience in neurology.</li>
+                <li>Expert in brain surgeries.</li>
+                <li>Developed innovative treatments for epilepsy.</li>
+                <li>Conducted over 1,000 MRI-based diagnoses.</li>
+                <li>Author of neurology textbooks.</li>
+                <li>Holds PhD in Neuroscience.</li>
+                <li>Advocate for mental health awareness.</li>
+                <li>Fluent in French and English.</li>
+                <li>Works with Alzheimer's research groups.</li>
+                <li>Professor at Johns Hopkins University.</li>
+            </ul>
+            <button class="back-button" onclick="this.parentElement.style.display='none'">Back</button>
+        </div>
+        
+        <div class="doctor-card" onclick="showDoctorDetails('doctor3')">
+            <img src="doct2.jpeg" alt="Dr. Robert Wilson">
+            <div class="doctor-info">
+                <h3>Dr.Farhan Shaik </h3>
+                <p>Specialty: Orthopedics</p>
+            </div>
+        </div>
+        <div id="doctor3" class="doctor-details">
+            <h2>Dr. Farhan Shaik - Orthopedics</h2>
+            <ul>
+                <li>18+ years experience in orthopedic surgery.</li>
+                <li>Specialist in joint replacement and trauma surgery.</li>
+                <li>Worked with professional athletes.</li>
+                <li>Developed innovative techniques for knee reconstruction.</li>
+                <li>Teaches orthopedic surgery at medical schools.</li>
+                <li>Expert in minimally invasive procedures.</li>
+                <li>Authored several research papers on bone health.</li>
+                <li>Holds an MS in Orthopedic Medicine.</li>
+                <li>Provides rehabilitation therapy programs.</li>
+                <li>Fluent in English and German.</li>
+            </ul>
+            <button class="back-button" onclick="this.parentElement.style.display='none'">Back</button>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 NovaCare Hospital. All rights reserved.</p>
+    </footer>
+</body>
+</html>

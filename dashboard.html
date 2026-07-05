@@ -1,0 +1,115 @@
+<!-- Updated dashboard.html with enhanced styling and serial numbers -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard - Apollo Hospital</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            max-height: 100vmax;
+        }
+        header {
+            background: linear-gradient(90deg, #157, #36a);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .dashboard-container {
+            display: flex;
+            justify-content: center;
+            margin: 30px;
+        }
+        .main-content {
+            width: 80%;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h3 {
+            color: #157;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background: #157;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        footer {
+            background: linear-gradient(90deg, #157, #36a);
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html">
+        <img src="novacare(1).png" alt="Hospital Logo" style="width: 50px;"></a>
+        <h4>Patient Dashboard</h4>
+    </header>
+    <div class="dashboard-container">
+        <div class="main-content">
+            <h3>Registered Patients</h3>
+            <table>
+                <tr>
+                    <th>Serial No.</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Medical History</th>
+                </tr>
+                <tbody id="recordsTable"></tbody>
+            </table>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Apollo Hospital. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let patients = JSON.parse(localStorage.getItem("patients")) || [];
+            let recordsTable = document.getElementById("recordsTable");
+            recordsTable.innerHTML = "";
+            patients.forEach((patient, index) => {
+                let row = recordsTable.insertRow();
+                row.insertCell(0).innerText = index + 1;
+                row.insertCell(1).innerText = patient.name;
+                row.insertCell(2).innerText = patient.age;
+                row.insertCell(3).innerText = patient.gender;
+                row.insertCell(4).innerText = patient.medicalHistory;
+            });
+        });
+    </script>
+</body>
+</html>
